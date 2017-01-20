@@ -5,7 +5,7 @@
     <name>Full screen image</name>
     <description>Plugin to show/hide animated full screen image on iOS</description>
     <author>Edgars Grundmanis</author>
-    <license>Apache 2.0</license>
+    <license>MIT</license>
     <keywords>cordova,image,fullscreen,splashscreen, animated, gif</keywords>
 
     <engines>
