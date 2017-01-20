@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-EGAnimatedFullScreenImage" version="1.0.0">
+
+    <name>Full screen image</name>
+    <description>Plugin to show/hide animated full screen image on iOS</description>
+    <author>Edgars Grundmanis</author>
+    <license>Apache 2.0</license>
+    <keywords>cordova,image,fullscreen,splashscreen, animated, gif</keywords>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="www/EGAnimatedFullScreenImage.js" name="device">
+        <clobbers target="window.EGAnimatedFullScreenImage" />
+    </js-module>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="EGAnimatedFullScreenImage">
+                <param name="ios-package" value="EGAnimatedFullScreenImage"/>
+            </feature>
+        </config-file>
+        <header-file src="src/ios/EGAnimatedFullScreenImage.h" />
+        <source-file src="src/ios/EGAnimatedFullScreenImage.m" />
+    </platform>
+    
+</plugin>
