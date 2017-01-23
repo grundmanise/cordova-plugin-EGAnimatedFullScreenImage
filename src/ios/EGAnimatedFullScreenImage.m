@@ -22,22 +22,26 @@
     if (_imageView)
         return;
     
-    CGFloat screenScale = [[UIScreen mainScreen] scale];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        CGFloat screenScale = [[UIScreen mainScreen] scale];
+        
+        NSString *path = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"www/application/app/%@@%.0fx", fullPath, screenScale] ofType:@"gif"];
+        
+        _imageView = [[FLAnimatedImageView alloc] init];
+        _imageView.animatedImage = [FLAnimatedImage animatedImageWithGIFData:[NSData dataWithContentsOfFile:path]];
+        _imageView.frame = [[UIScreen mainScreen] bounds];
+        _imageView.contentMode = UIViewContentModeScaleAspectFill;
+        _imageView.tag = 777; // (almost) random custom tag
+        
+        _parentView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
+        
+        [_parentView addSubview:_imageView];
+        [_parentView bringSubviewToFront:_imageView];
+        
+        _parentView.userInteractionEnabled = NO;  // disable user interaction while image is shown
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"www/application/app/%@@%.0fx", fullPath, screenScale] ofType:@"gif"];
-    
-    _imageView = [[FLAnimatedImageView alloc] init];
-    _imageView.animatedImage = [FLAnimatedImage animatedImageWithGIFData:[NSData dataWithContentsOfFile:path]];
-    _imageView.frame = [[UIScreen mainScreen] bounds];
-    _imageView.contentMode = UIViewContentModeScaleAspectFill;
-    _imageView.tag = 777; // (almost) random custom tag
-
-    _parentView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
-
-    [_parentView addSubview:_imageView];
-    [_parentView bringSubviewToFront:_imageView];
-
-    _parentView.userInteractionEnabled = NO;  // disable user interaction while image is shown
+    });
     
 }
 
