@@ -58,7 +58,11 @@
 
 - (void) hide:(CDVInvokedUrlCommand *)command {
     
-    UIView* EGAnimatedFullScreenImageView = [[UIApplication sharedApplication].keyWindow.rootViewController.view viewWithTag:777];
+    if (!_parentView) {
+        _parentView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
+    }
+    
+    UIView* EGAnimatedFullScreenImageView = [_parentView viewWithTag:777];
     
     if(EGAnimatedFullScreenImageView) {
         
