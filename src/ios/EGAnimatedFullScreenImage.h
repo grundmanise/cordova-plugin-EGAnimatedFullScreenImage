@@ -16,7 +16,7 @@
 
 - (void) showImageURL:(CDVInvokedUrlCommand*)command;
 - (void) hide:(CDVInvokedUrlCommand*)command;
+- (void) isVisible:(CDVInvokedUrlCommand*)command;
 - (void) show:(NSString*)fullPath;
-
 
 @end

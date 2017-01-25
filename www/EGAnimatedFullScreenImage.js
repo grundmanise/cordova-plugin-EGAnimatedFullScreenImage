@@ -33,4 +33,11 @@ EGAnimatedFullScreenImage.prototype.hide = function () {
 
 };
 
+EGAnimatedFullScreenImage.prototype.isVisible = function (successCb) {
+
+    exec(successCb, null, "EGAnimatedFullScreenImage", "isVisible", []);
+    
+
+}
+
 module.exports = new EGAnimatedFullScreenImage();
