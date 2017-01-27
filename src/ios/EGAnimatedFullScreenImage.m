@@ -8,6 +8,18 @@
 
 @implementation EGAnimatedFullScreenImage
 
+- (void)pluginInitialize
+{
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pageDidLoad) name:CDVPageDidLoadNotification object:nil];
+    
+}
+
+- (void) pageDidLoad {
+    
+    [self show:@"animatedSplashScreen/splashAnim"];
+    
+}
 
 - (void) showImageURL:(CDVInvokedUrlCommand*)command {
     
@@ -21,7 +33,7 @@
     
     if (_imageView)
         return;
-    
+
     CGFloat screenScale = [[UIScreen mainScreen] scale];
     
     NSString *path = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"www/application/app/%@@%.0fx", fullPath, screenScale] ofType:@"gif"];
