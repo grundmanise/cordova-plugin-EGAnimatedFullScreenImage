@@ -20,6 +20,7 @@
         <config-file target="config.xml" parent="/*">
             <feature name="EGAnimatedFullScreenImage">
                 <param name="ios-package" value="EGAnimatedFullScreenImage"/>
+                <param name="onload" value="true" />
             </feature>
         </config-file>
         <header-file src="src/ios/EGAnimatedFullScreenImage.h" />
