@@ -31,7 +31,9 @@
 
 - (void) show:(NSString*)fullPath {
     
-    if (_imageView)
+    UIView* EGAnimatedFullScreenImageView = [[UIApplication sharedApplication].keyWindow.rootViewController.view viewWithTag:777];
+    
+    if (_imageView || EGAnimatedFullScreenImageView)
         return;
 
     CGFloat screenScale = [[UIScreen mainScreen] scale];
