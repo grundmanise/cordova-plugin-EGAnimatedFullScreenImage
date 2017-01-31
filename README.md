@@ -1,7 +1,9 @@
 Cordova plugin to display full screen animated (.gif) image on iOS (iPhone)
 ===
 
-Plugin to show  display full screen animated (.gif) images on iOS cordova project and use it with native components.
+Plugin to display full screen (.gif) images on iOS cordova project and use it with native components.
+Currently this plugin is configured to swap a static ios (cordova) splash screen on the animated splash screen on cordova init.
+Later I hide it from the js.
 
 Installation:
 ---
@@ -15,6 +17,7 @@ Usage:
 
  - Images should be inside www/application/app/**path for image**
  - You should have @1x, @2x, @3x versions of the image in the **path for image** folder, e.g. example@1x.gif, example@2x.gif, example@3x.gif
+ - To change a splash screen please set the correct path in the `pageDidLoad` method in `EGAnimatedFullScreenImage.m`.
 
 **JS Methods:**
 
@@ -28,6 +31,10 @@ Usage:
 
 `EGAnimatedFullScreenImage.hide();`
 
+*Check whether image is visible*
+
+`EGAnimatedFullScreenImage.isVisible();` -> BOOL true/false
+
 Tested devices:
 ---
 
@@ -36,7 +43,8 @@ iPhone 5, 5s, 6;
 Notes:
 ---
 
-I am using this plugin to display an animated splashscreen.
+Currently this plugin is configured to swap a static ios (cordova) splash screen on the animated splash screen on cordova init.
+Later I hide it from the js.
 
 License:
 ---
